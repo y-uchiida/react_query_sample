@@ -3,6 +3,12 @@ import { User } from '../types/User';
 
 const fetchUsers = async () => {
 	const res = await fetch('https://jsonplaceholder.typicode.com/users');
+
+	// react query の制約として、データ取得の失敗時に必ずエラーを投げる必要がある
+	if (!res.ok) {
+		throw new Error('Network response was not ok');
+	}
+
 	const users = await res.json() as User[];
 	return users;
 };
