@@ -3,6 +3,7 @@ import { FetchFromUnexistUrlWithReactQuery } from './components/FetchFromUnexist
 import { FetchUsersWithoutReactQuery } from './components/FetchUsersWithoutReactQuery'
 import { FetchUsersWithReactQuery } from './components/FetchUsersWithReactQuery'
 import { UserQueryClientProvider } from './hooks/UserQuery'
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <FetchUsersWithReactQuery />
         <FetchFromUnexistUrlWithReactQuery />
         <CacheWithReactQuery />
+        <ReactQueryDevtools initialIsOpen={false} />
       </UserQueryClientProvider>
     </div>
   )
