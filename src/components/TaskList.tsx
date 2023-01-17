@@ -1,4 +1,21 @@
-import { useTasks } from "../hooks/useTasks";
+import { useDeleteTask, useTasks } from "../hooks/useTasks";
+import { Task } from "../types/Task";
+
+type TaskItemProps = {
+	task: Task
+};
+
+const TaskItem = ({ task }: TaskItemProps) => {
+	const deleteTask = useDeleteTask();
+	const handleTaskDelete = () => {
+		deleteTask.mutate(task.id);
+	}
+
+	return (<li key={task.id}>
+		{task.content.title}
+		<button type="button" onClick={handleTaskDelete}>delete</button>
+	</li>)
+}
 
 export const TaskList = () => {
 	const { data: tasks, isLoading } = useTasks();
@@ -10,8 +27,8 @@ export const TaskList = () => {
 
 	return (
 		<ul>
-			{tasks?.length > 0 && tasks.map(task => {
-				return <li key={task.id}>{task.content.title}</li>
+			{tasks.map(task => {
+				return <TaskItem key={task.id} task={task} />
 			})}
 		</ul>
 	)
