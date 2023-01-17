@@ -23,7 +23,7 @@ const UserList = () => {
 	);
 	// status がloading の場合はデータの取得をしている
 	// success の場合は読み込み成功またはキャッシュを利用
-	console.log(status);
+	// console.log(status);
 
 	if (isLoading) return <>loading...</>
 

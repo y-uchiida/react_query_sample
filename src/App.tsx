@@ -4,9 +4,10 @@ import { FetchUsersWithoutReactQuery } from './components/FetchUsersWithoutReact
 import { FetchUsersWithReactQuery } from './components/FetchUsersWithReactQuery'
 import { UserQueryClientProvider } from './hooks/UserQuery'
 import { ReactQueryDevtools } from 'react-query/devtools';
+import { TaskQueryClientProvider } from './hooks/TaskQuery'
+import { CrudTaskWithReactQuery } from './components/CrudTaskWithReactReactQuery'
 
 function App() {
-
   return (
     <div className="App">
       <FetchUsersWithoutReactQuery />
@@ -17,6 +18,9 @@ function App() {
         <CacheWithReactQuery />
         <ReactQueryDevtools initialIsOpen={false} />
       </UserQueryClientProvider>
+      <TaskQueryClientProvider>
+        <CrudTaskWithReactQuery />
+      </TaskQueryClientProvider>
     </div>
   )
 }
